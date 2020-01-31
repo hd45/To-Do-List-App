@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2E6CE9</color>
+    <color name="colorPrimaryDark">@color/colorPrimary</color>
+    <color name="colorAccent">#4270CA</color>
+
+    <color name="task_list_background">#FFFFFF</color>
+    <color name="new_task_background">#D8D9DD</color>
+    <color name="new_task_send">@color/colorAccent</color>
+
+
+</resources>
