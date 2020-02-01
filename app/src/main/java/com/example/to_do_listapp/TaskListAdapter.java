@@ -27,6 +27,16 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskViewHolder> {
         Task task = taskManager.getTaskList().get(position); //Aufgabe anhand der Position holen
         holder.checkBox.setText(task.getName());
         holder.checkBox.setChecked(false); //die recycleten Zellen sollen nicht abgehackt sein
+        holder.checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> onCheckedChange(isChecked, task,
+                holder.getLayoutPosition())); //remove Task if checked...
+    }
+
+    protected void onCheckedChange(boolean isChecked, Task task, int position){
+        if(isChecked){
+            taskManager.removeTask(task);
+            notifyItemRemoved(position);
+        }
+
     }
 
     @Override
