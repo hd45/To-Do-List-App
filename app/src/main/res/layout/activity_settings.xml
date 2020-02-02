@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".SettingsActivity">
 
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switch1"
         android:padding="16dip"
         android:layout_width="match_parent"

@@ -22,10 +22,12 @@ public class MainActivity extends AppCompatActivity { //extends: erbt Methoden v
     ImageView sendButton;
     TaskManager taskManager;
     RecyclerView recyclerView;
+    DarkModeManager darkModeManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        darkModeManager = new DarkModeManager(this);
         setContentView(R.layout.activity_main);
         taskManager = new TaskManager(this); //this context
         initViews(); //views anbinden
@@ -64,14 +66,14 @@ public class MainActivity extends AppCompatActivity { //extends: erbt Methoden v
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
-    }
+    } // xml Datei in Java Objekt umwandeln
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.settings_item) {
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
             startActivity(intent);
-        }
+        } //Settings öffnen, wenn man auf das Item klickt.
         return super.onOptionsItemSelected(item);
     }
 }
