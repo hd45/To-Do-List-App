@@ -2,9 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/settings_item"
-        android:title="@string/einstellungen"
-        app:showAsAction="never"/>
+    <item android:id="@+id/dark_mode"
+        android:title="@string/dark_mode"
+        android:icon="@mipmap/dark_mode"
+        app:showAsAction="always"/>
 
 
 </menu>

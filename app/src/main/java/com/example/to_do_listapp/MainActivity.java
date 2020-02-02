@@ -49,16 +49,16 @@ public class MainActivity extends AppCompatActivity { //extends: erbt Methoden v
 
     private void onSendButtonClick() {
         String newTaskName = newTaskEditText.getText().toString(); //Eingabefeld als String speichern
-        if(newTaskName.length() > 0) {
+        if(newTaskName.length() > 3) {
             Task task = new Task();
             task.setName(newTaskName);
             taskManager.addTask(task);
             Objects.requireNonNull(recyclerView.getAdapter()).notifyItemInserted(taskManager.getTaskCount() -1);
             //Adapter muss auch wissen, dass neue Aufgabe kommt. Sie soll an der letzten Stelle hinzugefügt werden.
             newTaskEditText.getText().clear(); //Text löschen nach dem Klciken auf senden
-        }//else {
-           // Toast.makeText("leere Aufgabe!"); todo hier ein Toast leere Aufgabe
-       // }
+        }else {
+           Toast.makeText(MainActivity.this,"Aufgabe ist kurz!",Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
@@ -70,10 +70,9 @@ public class MainActivity extends AppCompatActivity { //extends: erbt Methoden v
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.settings_item) {
-            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-            startActivity(intent);
-        } //Settings öffnen, wenn man auf das Item klickt.
-        return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.dark_mode) {
+            darkModeManager.toggle();
+        }
+        return true;
     }
-}
+}//todo Textfarbe in RecyclerView ändern + die 2 Videos beenden

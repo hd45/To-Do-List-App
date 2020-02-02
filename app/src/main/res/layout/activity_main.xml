@@ -39,7 +39,8 @@
             android:layout_width="48dip"
             android:layout_height="48dip"
             android:src="@mipmap/send"
-            android:tint="@color/new_task_send"/>
+            android:tint="@color/new_task_send"
+            android:contentDescription="@string/sned" />
         
     </LinearLayout>
 
