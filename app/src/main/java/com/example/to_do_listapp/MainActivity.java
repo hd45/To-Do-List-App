@@ -1,13 +1,20 @@
 package com.example.to_do_listapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity { //extends: erbt Methoden von einer bereits vorhandenen Activity
 
@@ -44,7 +51,7 @@ public class MainActivity extends AppCompatActivity { //extends: erbt Methoden v
             Task task = new Task();
             task.setName(newTaskName);
             taskManager.addTask(task);
-            recyclerView.getAdapter().notifyItemInserted(taskManager.getTaskCount() -1);
+            Objects.requireNonNull(recyclerView.getAdapter()).notifyItemInserted(taskManager.getTaskCount() -1);
             //Adapter muss auch wissen, dass neue Aufgabe kommt. Sie soll an der letzten Stelle hinzugefügt werden.
             newTaskEditText.getText().clear(); //Text löschen nach dem Klciken auf senden
         }//else {
@@ -52,4 +59,19 @@ public class MainActivity extends AppCompatActivity { //extends: erbt Methoden v
        // }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.settings_item) {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
