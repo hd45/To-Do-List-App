@@ -32,7 +32,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="100"
             android:layout_marginEnd="16dip"
-            android:hint="@string/aufgabe_hinzuf_gen"/>
+            android:hint="@string/aufgabe_hinzuf_gen"
+            android:textColorHint="@color/hint_color"
+            android:backgroundTint="@color/line_color"
+            android:textColor="@color/hint_color"
+            android:textCursorDrawable="@null"/>
 
         <ImageView
             android:id="@+id/send_button"

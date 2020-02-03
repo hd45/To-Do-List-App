@@ -5,8 +5,14 @@
     <color name="colorAccent">#000000</color>
 
     <color name="task_list_background">#212121</color>
-    <color name="new_task_background">#b2b2b2</color>
-    <color name="new_task_send">@color/colorAccent</color>
+    <color name="new_task_background">#070000</color>
+    <color name="new_task_send">#C8E6E0E0</color>
+
+
+    <color name="checkbox_text">#BAFFFFFF</color>
+    <color name="checkbox_color">@color/checkbox_text</color>
+    <color name="hint_color">#B7C4C3C3</color>
+    <color name="line_color">@color/hint_color</color>
 
 
 
