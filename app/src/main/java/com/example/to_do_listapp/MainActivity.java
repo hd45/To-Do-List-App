@@ -2,6 +2,7 @@ package com.example.to_do_listapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,6 +42,8 @@ public class MainActivity extends AppCompatActivity { //extends: erbt Methoden v
         recyclerView = findViewById(R.id.task_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this)); //default vom Context ist vertikal
         recyclerView.setAdapter(new TaskListAdapter(taskManager));
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new TaskListTouchCallback(taskManager));
+        itemTouchHelper.attachToRecyclerView(recyclerView); //mit der Liste verbinden
     }
 
     private void initClickListeners() {
@@ -75,4 +78,4 @@ public class MainActivity extends AppCompatActivity { //extends: erbt Methoden v
         }
         return true;
     }
-}//todo Textfarbe in RecyclerView ändern + die 2 Videos beenden
+}

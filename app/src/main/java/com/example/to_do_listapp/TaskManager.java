@@ -25,6 +25,13 @@ public class TaskManager {
         saveTaskList();
     }
 
+    public void moveTask(int oldPosition, int newPosition){
+        Task task = taskList.get(oldPosition);
+        taskList.remove(task); //task löschen
+        taskList.add(newPosition, task); //an der neuen Position hinzufügen
+        saveTaskList();
+    }
+
     public ArrayList<Task> getTaskList(){ //Liste von Aufgaben
         return taskList;
     }
