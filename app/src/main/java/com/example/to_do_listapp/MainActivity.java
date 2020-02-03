@@ -6,13 +6,16 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Objects;
@@ -35,7 +38,6 @@ public class MainActivity extends AppCompatActivity { //extends: erbt Methoden v
         initClickListeners();
     }
 
-
     private void initViews() {
         newTaskEditText = findViewById(R.id.new_task);
         sendButton = findViewById(R.id.send_button);
@@ -46,9 +48,11 @@ public class MainActivity extends AppCompatActivity { //extends: erbt Methoden v
         itemTouchHelper.attachToRecyclerView(recyclerView); //mit der Liste verbinden
     }
 
+
     private void initClickListeners() {
         sendButton.setOnClickListener(view -> onSendButtonClick());
     }
+
 
     private void onSendButtonClick() {
         String newTaskName = newTaskEditText.getText().toString(); //Eingabefeld als String speichern

@@ -10,4 +10,5 @@
     android:textColor="@color/checkbox_text"
     android:buttonTint="@color/checkbox_color">
 
+
 </CheckBox>

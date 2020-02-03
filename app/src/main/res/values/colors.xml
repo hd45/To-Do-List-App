@@ -6,7 +6,7 @@
 
     <color name="task_list_background">#FFFFFF</color>
     <color name="new_task_background">#D8D9DD</color>
-    <color name="new_task_send">@color/colorAccent</color>
+    <color name="new_task_send">@color/colorPrimary</color>
     <color name="checkbox_text">#000000</color>
     <color name="checkbox_color">#000000</color>
     <color name="hint_color">#090000</color>
