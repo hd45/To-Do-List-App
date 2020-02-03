@@ -4,9 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class TaskListTouchCallback extends ItemTouchHelper.SimpleCallback{
+public class TaskListTouchCallback extends ItemTouchHelper.SimpleCallback{ //nested class with some abstract methods
 
     TaskManager taskManager;
+    RecyclerView recyclerView;
 
     /**
      * Creates a Callback for the given drag and swipe allowance. These values serve as
@@ -24,9 +25,12 @@ public class TaskListTouchCallback extends ItemTouchHelper.SimpleCallback{
      *                  #END},
      *                  {@link #UP} and {@link #DOWN}.
      */
-    public TaskListTouchCallback(TaskManager taskManager) { //Dirs stands for direction
-        super(ItemTouchHelper.UP | ItemTouchHelper.DOWN, 0);
+
+
+    public TaskListTouchCallback(TaskManager taskManager, RecyclerView recyclerView) { //Dirs stands for direction
+        super(ItemTouchHelper.UP | ItemTouchHelper.DOWN, ItemTouchHelper.RIGHT);
         this.taskManager = taskManager; //lokal speichern nach der von außen Übergabe
+        this.recyclerView = recyclerView; //zuweisen
     }
 
     @Override
@@ -40,7 +44,11 @@ public class TaskListTouchCallback extends ItemTouchHelper.SimpleCallback{
 
     @Override
     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-
-    } //nested class with some abstract methods
+        int position = viewHolder.getAdapterPosition();
+        taskManager.removeTask(position);
+        recyclerView.getAdapter().notifyItemRemoved(position);
+    }
 
 }
+
+

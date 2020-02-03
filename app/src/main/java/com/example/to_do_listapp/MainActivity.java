@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity { //extends: erbt Methoden v
         recyclerView = findViewById(R.id.task_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this)); //default vom Context ist vertikal
         recyclerView.setAdapter(new TaskListAdapter(taskManager));
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new TaskListTouchCallback(taskManager));
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new TaskListTouchCallback(taskManager, recyclerView));
         itemTouchHelper.attachToRecyclerView(recyclerView); //mit der Liste verbinden
     }
 
